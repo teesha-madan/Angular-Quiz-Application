@@ -1,1 +1,0 @@
-# Angular-Quiz-Application
