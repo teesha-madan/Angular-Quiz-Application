@@ -49,7 +49,7 @@ src/
 
 ---
 
-## ⚙️ Setup Instructions
+##  Setup Instructions
 
 ### Install dependencies
 
