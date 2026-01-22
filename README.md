@@ -1,59 +1,109 @@
-# AngularQuizApp
+# Angular Quiz Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.0.
+An Angular-based quiz application that allows users to select quizzes by category, attempt questions within a time limit, reset answers during the quiz, and view final results after submission. The application uses JSON Server as a mock backend.
 
-## Development server
+---
 
-To start a local development server, run:
+## Features
+
+- Quiz selection using dropdown
+- Countdown before quiz starts (3 → 2 → 1)
+- Fixed quiz timer (60 seconds)
+- Supports MCQ and Text-based questions
+- Previous / Next question navigation
+- Reset answers during quiz
+- Prevent starting a new quiz until current quiz finishes
+- Auto-submit when timer ends
+- Final score calculation with negative marking
+- Clean and responsive UI
+
+---
+
+## Technologies Used
+
+- Angular
+- TypeScript
+- HTML & CSS
+- JSON Server
+- Postman
+
+---
+
+## Project Structure
+src/
+├── app/
+│ ├── components/
+│ │ ├── quiz-selection/
+│ │ ├── quiz-player/
+│ │ ├── mcq-question/
+│ │ └── text-question/
+│ ├── services/
+│ │ └── quiz.service.ts
+│ ├── models/
+│ │ ├── quiz.model.ts
+│ │ └── question.model.ts
+│ └── directives/
+│ └── countdown.directive.ts
+└── assets/
+
+
+---
+
+## ⚙️ Setup Instructions
+
+### Install dependencies
 
 ```bash
+npm install
+```
+
+### Start JSON Server
+
+Ensure db.json exists in the project root.
+
+```bash
+npx json-server --watch db.json --port 3000
+```
+
+Open in browser:
+
+http://localhost:3000/quizzes
+
+### Run Angular Application
+``` bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open:
+http://localhost:4200
 
-## Code scaffolding
+### API Endpoint
+Method	    Endpoint	    Description
+GET	        /quizzes	    Retrieve all quizzes
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Base URL:
+http://localhost:3000
 
-```bash
-ng generate component component-name
-```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### API Testing
 
-```bash
-ng generate --help
-```
+A Postman collection is included:
 
-## Building
+File: Angular-Quiz-API.postman_collection.json
 
-To build the project run:
+Endpoint tested: GET /quizzes
 
-```bash
-ng build
-```
+### Scoring Logic
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Correct answer → marksIfCorrect
 
-## Running unit tests
+Wrong answer → negativeMark
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Unanswered → no marks
 
-```bash
-ng test
-```
+Quiz auto-submits when timer reaches zero
 
-## Running end-to-end tests
 
-For end-to-end (e2e) testing, run:
+## Author
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Teesha Madan
