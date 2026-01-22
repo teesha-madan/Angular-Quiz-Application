@@ -29,26 +29,6 @@ An Angular-based quiz application that allows users to select quizzes by categor
 
 ---
 
-## Project Structure
-src/
-├── app/
-│ ├── components/
-│ │ ├── quiz-selection/
-│ │ ├── quiz-player/
-│ │ ├── mcq-question/
-│ │ └── text-question/
-│ ├── services/
-│ │ └── quiz.service.ts
-│ ├── models/
-│ │ ├── quiz.model.ts
-│ │ └── question.model.ts
-│ └── directives/
-│ └── countdown.directive.ts
-└── assets/
-
-
----
-
 ##  Setup Instructions
 
 ### Install dependencies
