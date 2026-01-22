@@ -1,0 +1,7 @@
+<h3>{{ question.title }}</h3>
+
+<input
+  type="text"
+  [value]="answer"
+  (input)="onInput($event.target.value)"
+  placeholder="Type your answer here" />

@@ -1,0 +1,54 @@
+{
+  "quizzes": [
+    {
+      "id": 1,
+      "category": "Angular",
+      "maxScore": 90,
+      "maxTime": 600,
+      "questions": [
+        {
+          "id": 1,
+          "type": "mcq",
+          "title": "What is Angular?",
+          "options": [
+            "A framework",
+            "A database",
+            "A language",
+            "A tool"
+          ],
+          "correctAnswer": "A framework",
+          "marksIfCorrect": 10,
+          "negativeMark": 2
+        },
+        {
+          "id": 2,
+          "type": "mcq",
+          "title": "What is Dependency Injection?",
+          "options": [
+            "A design pattern",
+            "A JavaScript framework",
+            "A database concept",
+            "A UI component"
+        ],
+          "correctAnswer": "A design pattern",
+          "marksIfCorrect": 15,
+          "negativeMark": 3
+        },
+        {
+          "id": 3,
+          "type": "mcq",
+          "title": "Which directive repeats elements?",
+          "options": [
+            "*ngIf",
+            "*ngFor",
+            "*ngSwitch",
+            "*ngModel"
+          ],
+          "correctAnswer": "*ngFor",
+          "marksIfCorrect": 10,
+          "negativeMark": 2
+        }
+      ]
+    }
+  ]
+}

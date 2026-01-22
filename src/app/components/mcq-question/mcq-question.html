@@ -1,0 +1,14 @@
+<h3>{{ question.title }}</h3>
+
+<ul>
+  <li *ngFor="let option of question.options">
+    <label>
+      <input
+        type="radio"
+        name="option"
+        [checked]="selectedAnswer === option"
+        (change)="select(option)">
+      {{ option }}
+    </label>
+  </li>
+</ul>

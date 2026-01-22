@@ -1,0 +1,13 @@
+- [ ] Fix result-pipe.ts: Change single quotes to backticks in template literal
+- [ ] Fix quiz-selection.html: Add space in *ngFor="let quiz of quizzes"
+- [ ] Make QuizSelection component standalone
+- [ ] Make QuizPlayer component standalone
+- [ ] Make McqQuestion component standalone
+- [ ] Make TextQuestion component standalone
+- [ ] Make QuizResult component standalone
+- [ ] Make CountdownDirective standalone
+- [ ] Make ResultPipe standalone
+- [ ] Update app.component.ts: Add selectedQuiz property, import child components and CommonModule, FormsModule
+- [ ] Update app.config.ts: Add provideHttpClient
+- [ ] Remove app.module.ts
+- [ ] Fix service import in quiz.service.ts if needed

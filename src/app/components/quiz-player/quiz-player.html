@@ -1,0 +1,105 @@
+<div class="quiz-container">
+
+  <!-- HEADER -->
+  <div class="quiz-header">
+    <h2>{{ quiz.category }} Quiz</h2>
+    <span class="timer">⏱ {{ timeLeft }}s</span>
+  </div>
+
+  <!-- QUIZ QUESTIONS -->
+  <div *ngIf="!submitted">
+
+    <p>
+      Question {{ currentIndex + 1 }} of {{ quiz.questions.length }}
+    </p>
+
+    <div class="question">
+      {{ currentQuestion.title }}
+    </div>
+
+    <!-- MCQ QUESTION -->
+    <div
+      class="options"
+      *ngIf="currentQuestion.type === 'mcq'">
+
+      <label
+        class="option"
+        *ngFor="let opt of currentQuestion.options">
+
+        <input
+          type="radio"
+          [name]="'q' + currentQuestion.id"
+          [value]="opt"
+          [(ngModel)]="answers[currentQuestion.id]" />
+
+        {{ opt }}
+      </label>
+    </div>
+
+    <!-- TEXT QUESTION -->
+    <div *ngIf="currentQuestion.type === 'text'">
+      <input
+        type="text"
+        [(ngModel)]="answers[currentQuestion.id]"
+        placeholder="Type your answer"
+        style="margin-top: 10px; width: 100%; padding: 8px;"
+      />
+    </div>
+
+    <!-- NAVIGATION BUTTONS -->
+    <div class="nav-buttons">
+
+      <button
+        (click)="prev()"
+        [disabled]="currentIndex === 0">
+        Previous
+      </button>
+
+      <button
+        (click)="next()"
+        [disabled]="currentIndex === quiz.questions.length - 1">
+        Next
+      </button>
+
+      <button
+        class="submit-btn"
+        (click)="finishQuiz()">
+        Submit Quiz
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- RESULT SCREEN -->
+  <div *ngIf="submitted" class="result">
+
+    <h3>Quiz Completed 🎉</h3>
+
+    <p>
+      <strong>Final Score:</strong> {{ score }}
+    </p>
+
+    <h4>Detailed Results:</h4>
+
+    <ul>
+      <li *ngFor="let q of quiz.questions">
+        <strong>{{ q.title }}</strong><br />
+         Your Answer:
+        <span
+          [class.correct]="answers[q.id] === q.correctAnswer"
+          [class.wrong]="answers[q.id] !== q.correctAnswer">
+          {{ answers[q.id] || 'Not Answered' }}
+        </span>
+        <br />
+
+        Correct Answer: {{ q.correctAnswer }}
+      </li>
+    </ul>
+
+  </div>
+
+</div>
+<button class="reset-btn" (click)="resetQuiz()" *ngIf="!submitted">
+  Reset Quiz
+</button>

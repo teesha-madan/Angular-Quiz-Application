@@ -1,0 +1,31 @@
+<!-- QUIZ SELECTION -->
+<div
+  class="selection-container"
+  *ngIf="!showQuizPlayer">
+
+  <h2>Select Quiz</h2>
+
+  <select [(ngModel)]="selectedQuiz">
+    <option *ngFor="let quiz of quizzes" [ngValue]="quiz">
+      {{ quiz.category }}
+    </option>
+  </select>
+
+  <button
+  (click)="startQuiz()"
+  [disabled]="!selectedQuiz || quizInProgress">
+  Start Quiz
+</button>
+
+
+  <div *ngIf="showCountdown" class="countdown">
+    Starting in {{ countdown }}
+  </div>
+
+</div>
+
+<!-- QUIZ PLAYER -->
+<app-quiz-player
+  *ngIf="showQuizPlayer"
+  [quiz]="selectedQuiz!">
+</app-quiz-player>
